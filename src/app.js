@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const wbm = require('wbm');
-
+const path = require('path');
+const bodyParser = require('body-parser');
 
 // creating a database 
 mongoose.connect('mongodb+srv://admin:1234@cluster0.zp0il.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
@@ -14,9 +14,6 @@ mongoose.connect('mongodb+srv://admin:1234@cluster0.zp0il.mongodb.net/myFirstDat
 }).catch((err) => {
     console.log(err);
 });
-
-const path = require('path');
-const bodyParser = require('body-parser');
 
 
 
@@ -46,7 +43,7 @@ app.get('/', (req, res) => {
     res.render('index', {
         age: myAge
     });
-    });
+});
 
 app.post('/contact', (req, res) => {
     // console.log(req.body);
